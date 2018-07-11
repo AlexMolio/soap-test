@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<definitions 
+	xmlns="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tns="https://soap-test.000webhostapp.com/server.php" 
+	xmlns:soap-env="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+	targetNamespace="https://soap-test.000webhostapp.com/server.php">
+	
+	<types>
+		<xsd:schema>
+			<xsd:complexType name="Array">
+				<xsd:complexContent>
+					<xsd:restriction base="soapenc:Array">
+
+						<xsd:attribute ref="soapenc:arrayType" arrayType="tns:mixed[]"/>
+							
+					</xsd:restriction>
+				</xsd:complexContent>
+			</xsd:complexType>
+
+				<complexType name="mixed">
+					<all>
+
+						<element name="varString" type="xsd:string"/>
+						<element name="varInt" type="xsd:int"/>
+						<element name="varFloat" type="xsd:float"/>
+						<element name="varArray" type="tns:array" minOccurs="1" maxOccurs="unbounded"/>
+
+					</all>
+				</complexType>
+			</xsd:schema>
+		</types>
+
+		<message name="addFormInput">
+			<part name="name" type="xsd:string"/>
+			<part name="lastname" type="xsd:string"/>
+			<part name="date_of_birth" type="xsd:dateTime"/>
+		</message>
+
+		<message name="editFormInput">
+			<part name="id" type="xsd:int"/>
+			<part name="name" type="xsd:string"/>
+			<part name="lastname" type="xsd:string"/>
+			<part name="date_of_birth" type="xsd:dateTime"/>
+		</message>
+
+		<message name="editFormOutput">
+			<part name="answer" type="xsd:string"/>
+		</message>
+
+		<message name="getInfoByIdInput">
+			<part name="id" type="xsd:int"/>
+		</message>
+
+		<message name="getInfoByIdOutput">
+			<part name="name" type="xsd:string"/>
+		</message>
+
+		<message name="getInfoListInput"/>
+		<message name="getInfoInput">
+			<part name="name" type="xsd:string"/>
+		</message>
+
+		<message name="addFormOutput">
+			<part name="answer" type="xsd:string"/>
+		</message>
+
+		<message name="getInfoOutput">
+			<part name="answer" type="xsd:string"/>
+		</message>
+
+		<message name="getInfoListOutput">
+			<part name="answer" type="xsd:string"/>
+		</message>
+
+		<portType name="FormServerPortType">
+
+			<operation name="addFormInfo">
+				<input message="tns:addFormInput"/>
+				<output message="tns:addFormOutput"/>
+			</operation>
+
+			<operation name="getFormInfoById">
+				<input message="tns:getInfoByIdInput"/>
+				<output message="tns:getInfoByIdOutput"/>
+			</operation>
+
+
+			<operation name="getFormInfo">
+				<input message="tns:getInfoInput"/>
+				<output message="tns:getInfoOutput"/>
+			</operation>
+
+			<operation name="getFormInfoList">
+				<input message="tns:getInfoListInput"/>
+				<output message="tns:getInfoListOutput"/>
+			</operation>
+
+			<operation name="editFormInfo">
+				<input message="tns:editFormInput"/>
+				<output message="tns:editFormOutput"/>
+			</operation>
+
+		</portType>
+
+		<binding name="FormServerBinding" type="tns:FormServerPortType">
+
+			<soap-env:binding xmlns="http://schemas.xmlsoap.org/wsdl/soap/" style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+			<operation xmlns:default="http://schemas.xmlsoap.org/wsdl/soap/" name="addFormInfo">
+
+				<input xmlns:default="http://schemas.xmlsoap.org/wsdl/soap/">
+					<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				</input>
+
+				<output xmlns:default="http://schemas.xmlsoap.org/wsdl/soap/">
+					<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				</output>
+
+			</operation>
+
+			<operation xmlns:default="http://schemas.xmlsoap.org/wsdl/soap/" name="editFormInfo">
+
+				<input xmlns:default="http://schemas.xmlsoap.org/wsdl/soap/">
+					<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				</input>
+
+				<output xmlns:default="http://schemas.xmlsoap.org/wsdl/soap/">
+					<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				</output>
+
+			</operation>
+
+			<operation xmlns:default="http://schemas.xmlsoap.org/wsdl/soap/" name="getFormInfoById">
+
+				<input xmlns:default="http://schemas.xmlsoap.org/wsdl/soap/">
+					<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				</input>
+
+				<output xmlns:default="http://schemas.xmlsoap.org/wsdl/soap/">
+					<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				</output>
+
+			</operation>
+
+			<operation xmlns:default="http://schemas.xmlsoap.org/wsdl/soap/" name="getFormInfo">
+
+				<input xmlns:default="http://schemas.xmlsoap.org/wsdl/soap/">
+					<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				</input>
+
+				<output xmlns:default="http://schemas.xmlsoap.org/wsdl/soap/">
+					<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				</output>
+
+			</operation>
+
+			<operation xmlns:default="http://schemas.xmlsoap.org/wsdl/soap/" name="getFormInfoList">
+
+				<input xmlns:default="http://schemas.xmlsoap.org/wsdl/soap/">
+					<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				</input>
+
+				<output xmlns:default="http://schemas.xmlsoap.org/wsdl/soap/">
+					<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				</output>
+
+			</operation>
+
+		</binding>
+
+		<service name="AvistSmsServerService">
+			<port xmlns:default="http://schemas.xmlsoap.org/wsdl/soap/" name="AvistSmsServerPort" binding="tns:FormServerBinding">
+				<soap-env:address xmlns="http://schemas.xmlsoap.org/wsdl/soap/" location="https://soap-test.000webhostapp.com/server.php"/>
+			</port>
+		</service>
+
+	</definitions>

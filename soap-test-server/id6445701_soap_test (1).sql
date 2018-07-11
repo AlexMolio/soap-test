@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost:3306
--- Время создания: Июл 11 2018 г., 08:12
+-- Время создания: Июл 11 2018 г., 15:48
 -- Версия сервера: 10.1.31-MariaDB
 -- Версия PHP: 7.0.26
 
@@ -42,14 +42,16 @@ CREATE TABLE `forms` (
 INSERT INTO `forms` (`id`, `name`, `lastname`, `date_of_birth`) VALUES
 (1, 'Sam', 'Johnson', '1954-07-18'),
 (2, 'John', 'Fetch', '1978-10-20'),
-(3, 'Boby', 'Dilan', '1961-02-07'),
+(3, 'Boby', 'Dilan', '1962-03-08'),
 (4, 'Anny', 'Commers', '1991-05-21'),
 (5, 'Sam', 'Votler', '1943-07-13'),
 (6, 'Danny', 'Mosert', '1964-07-20'),
 (7, 'Bony', 'Clide', '1980-07-19'),
 (9, 'Connor', 'Array', '1983-07-20'),
 (10, 'Sam', 'Dilan', '1976-07-05'),
-(11, 'Dilan', 'Bowy', '1940-07-20');
+(11, 'Dilan', 'Bowy', '1940-07-20'),
+(20, 'Sasha', 'Moloh', '1999-06-01'),
+(21, 'Garry', 'Oldman', '1971-07-14');
 
 --
 -- Индексы сохранённых таблиц
@@ -69,7 +71,7 @@ ALTER TABLE `forms`
 -- AUTO_INCREMENT для таблицы `forms`
 --
 ALTER TABLE `forms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

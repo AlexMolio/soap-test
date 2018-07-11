@@ -6,10 +6,10 @@ class SiteController
     {
 
 		$client = new Client;
-
-    	$names_array = array('params' => array('name' => ''));
     	    
-    	$answer = $client->getInfoList($names_array);
+    	$answer = $client->getInfoList();
+    	
+    	//var_dump($answer);
     	    
     	$person = $answer['info']; 
 
@@ -24,21 +24,14 @@ class SiteController
 
 		if(isset($_POST['submit'])) {
 
-			$subject = $_POST['name'];
+			$name = $_POST['name'];
 			
 			$client = new Client;
-
-    	    $names_array = array('params' => array('name' => ''));
     	    
-    	    $names_array['params']['name'] = $subject;
-    	    
-    	    $answer = $client->getInfo($names_array);
+    	    $answer = $client->getInfo($name);
     	    
     	    $person = $answer['info']; 
-    	    
-    	    
-    	    
-    	    
+	    
 		}
 
 
@@ -63,15 +56,15 @@ class SiteController
 			
 			$client = new Client;
 
-    	    $names_array = array('params' => array('name' => '', 'lastname' => '', 'date_of_birth' => ''));
+    	    //$names_array = array('params' => array('name' => '', 'lastname' => '', 'date_of_birth' => ''));
     	    
-    	    $names_array['params']['name'] = $name;
+    	    //$names_array['params']['name'] = $name;
     	    
-    	    $names_array['params']['lastname'] = $lastname;
+    	    //$names_array['params']['lastname'] = $lastname;
     	    
-    	    $names_array['params']['date_of_birth'] = $date_of_birth;
+    	    //$names_array['params']['date_of_birth'] = $date_of_birth;
     	    
-    	    $answer = $client->addInfo($names_array);
+    	    $answer = $client->addInfo($name, $lastname, $date_of_birth);
     	      
 		}
 
@@ -89,11 +82,11 @@ class SiteController
         
         $client = new Client;
 
-        $names_array = array('params' => array('id' => ''));
+        //$names_array = array('params' => array('id' => ''));
         	    
-        $names_array['params']['id'] = $id;
+        //$names_array['params']['id'] = $id;
         	    
-        $info = $client->getInfoById($names_array);
+        $info = $client->getInfoById($id);
         	    
         $person = $info['info'];
 
@@ -107,17 +100,17 @@ class SiteController
 			
 			$client = new Client;
 
-    	    $names_array = array('params' => array('name' => '', 'lastname' => '', 'date_of_birth' => ''));
+    	    //$names_array = array('params' => array('name' => '', 'lastname' => '', 'date_of_birth' => ''));
     	    
-    	    $names_array['params']['id'] = $id;
+    	    //$names_array['params']['id'] = $id;
     	    
-    	    $names_array['params']['name'] = $name;
+    	    //$names_array['params']['name'] = $name;
     	    
-    	    $names_array['params']['lastname'] = $lastname;
+    	    //$names_array['params']['lastname'] = $lastname;
     	    
-    	    $names_array['params']['date_of_birth'] = $date_of_birth;
+    	    //$names_array['params']['date_of_birth'] = $date_of_birth;
     	    
-    	    $answer = $client->editInfo($names_array);
+    	    $answer = $client->editInfo($id, $name, $lastname, $date_of_birth);
     	    
     	    //var_dump($answer);
     	    

@@ -25,12 +25,12 @@
 
         }
 
-        public function getFormInfo($names_array)
+        public function getFormInfo($name)
 
         {
             $answer = array('errors' => array(), 'info' => '');
             
-            $name = $names_array['name'];
+            $name = $name;
             
             if($name != strip_tags($name)){
                 $answer['errors'][] = 'Думаешь можно просто так слать сюда тэги?!';
@@ -56,7 +56,7 @@
             return $answer;
         }
         
-        public function getFormInfoList($names_array)
+        public function getFormInfoList()
 
         {
             
@@ -80,11 +80,11 @@
             return $answer;
         }
         
-        public function getFormInfoById($info_array)
+        public function getFormInfoById($id)
 
         {
             
-            $id = $info_array['id'];
+            $id = $id;
             $sql = "SELECT * FROM forms WHERE id = '$id'";
 
             $qry = mysqli_query($this->con, $sql);
@@ -105,16 +105,16 @@
             return $answer;
         }
         
-        public function addFormInfo($names_array)
+        public function addFormInfo($name, $lastname, $date_of_birth)
 
         {
             $answer = array('errors' => array(), 'info' => '');
             
-            $name = $names_array['name'];
+            $name = $name;
             
-            $lastname = $names_array['lastname'];
+            $lastname = $lastname;
             
-            $date_of_birth = $names_array['date_of_birth'];
+            $date_of_birth = $date_of_birth;
             
             if($name != strip_tags($name) || $lastname != strip_tags($lastname) || $date_of_birth != strip_tags($date_of_birth)){
                 $answer['errors'][] = 'Думаешь можно просто так слать сюда тэги?!';
@@ -143,18 +143,18 @@
             return $answer;
         }
         
-        public function editFormInfo($info_array)
+        public function editFormInfo($id, $name, $lastname, $date_of_birth)
 
         {
             $answer = array('errors' => array(), 'info' => '');
             
-            $id = $info_array['id'];
+            $id = $id;
             
-            $name = $info_array['name'];
+            $name = $name;
             
-            $lastname = $info_array['lastname'];
+            $lastname = $lastname;
             
-            $date_of_birth = $info_array['date_of_birth'];
+            $date_of_birth = $date_of_birth;
             
             if($id != strip_tags($id) || $name != strip_tags($name) || $lastname != strip_tags($lastname) || $date_of_birth != strip_tags($date_of_birth)){
                 $answer['errors'][] = 'Думаешь можно просто так слать сюда тэги?!';
